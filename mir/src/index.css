@@ -1,0 +1,193 @@
+/* Import fonts first */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&display=swap');
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Styles for CSS Parallax */
+.parallax-bg {
+  /* Set background properties */
+  /* background-position: center center; */
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  /* background-size: cover; */
+  /* Scale the image to cover the element */
+
+  /* The parallax magic */
+  background-attachment: fixed;
+  /* Fix the background relative to the viewport */
+}
+
+/* Optional: Disable parallax on mobile devices where 'fixed' can be problematic */
+@media (max-width: 767px) {
+  .parallax-bg {
+    background-attachment: scroll;
+    /* Use normal scrolling behavior on mobile */
+  }
+}
+
+/* Ensure html and body have height for scrolling */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* Optional: Add a default background color if needed */
+  /* background-color: #ffffff; */
+}
+
+/* Ensure root takes up space and allows content scrolling */
+#root {
+  min-height: 100%;
+  /* overflow-x: hidden; */
+  /* Prevent potential horizontal scrollbars */
+}
+
+/* Add padding-bottom to the main App container to prevent footer overlap */
+/* (This might already be in your App.jsx, but good to ensure) */
+/* .app-container {
+  padding-bottom: 48px; /* Adjust based on your footer height */
+/* } */
+
+/* ================= THE MAD ITALIAN BRAND STYLES ================= */
+
+/* Brand Colors - Can be used with Tailwind's arbitrary value syntax [#value] */
+:root {
+  --milano-red: #B51A00;
+  --pickled-bean: #6F7608;
+  --yukon-gold: #BC8F60;
+  --alfredo-white: #FDF8ED;
+  --squid-ink: #33312B;
+}
+
+/* Typography Base Styles */
+@layer base {
+
+  /* Set base font */
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* Heading styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+}
+
+/* Utility Classes for Brand Styles */
+@layer utilities {
+
+  /* Brand-specific typography */
+  .font-display {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* For logo/brand text - mimicking Kiln Sans Regular */
+  .font-brand {
+    font-family: 'Antonio', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Color utilities beyond Tailwind defaults */
+  .text-milano-red {
+    color: var(--milano-red);
+  }
+
+  .bg-milano-red {
+    background-color: var(--milano-red);
+  }
+
+  .text-pickled-bean {
+    color: var(--pickled-bean);
+  }
+
+  .bg-pickled-bean {
+    background-color: var(--pickled-bean);
+  }
+
+  .text-yukon-gold {
+    color: var(--yukon-gold);
+  }
+
+  .bg-yukon-gold {
+    background-color: var(--yukon-gold);
+  }
+
+  .text-alfredo-white {
+    color: var(--alfredo-white);
+  }
+
+  .bg-alfredo-white {
+    background-color: var(--alfredo-white);
+  }
+
+  .text-squid-ink {
+    color: var(--squid-ink);
+  }
+
+  .bg-squid-ink {
+    background-color: var(--squid-ink);
+  }
+
+  /* Border utilities */
+  .border-yukon-gold {
+    border-color: var(--yukon-gold);
+  }
+
+  .border-milano-red {
+    border-color: var(--milano-red);
+  }
+}
+
+/* Component styles */
+@layer components {
+  .btn-primary {
+    @apply bg-[#B51A00] text-[#FDF8ED] font-bold py-2 px-4 uppercase tracking-wider transition-all duration-300 hover:bg-[#9A1600];
+  }
+
+  .btn-secondary {
+    @apply bg-[#BC8F60] text-[#33312B] font-bold py-2 px-4 uppercase tracking-wider transition-all duration-300 hover:bg-[#A67B50];
+  }
+
+  .menu-item {
+    @apply border-b border-dotted border-[#BC8F60] pb-2 mb-3 last:border-b-0;
+  }
+
+  .section-heading {
+    @apply text-2xl sm:text-3xl font-bold uppercase tracking-wide mb-4;
+  }
+}
+
+/* Visual treatments */
+.img-border {
+  border: 2px solid var(--yukon-gold);
+}
+
+/* This is an optional animation for hover effects */
+.hover-grow {
+  transition: transform 0.2s ease;
+}
+
+.hover-grow:hover {
+  transform: scale(1.02);
+}

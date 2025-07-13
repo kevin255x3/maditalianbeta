@@ -49,31 +49,25 @@ const menuItems = [
     { id: 42, category: 'Beers & Cider on Tap', name: 'Fraser Valley Cider', description: '12 oz', price: '$9.99' },
     { id: 43, category: 'Beers & Cider on Tap', name: 'Bira Moretti, Italian lager', description: '14 oz', price: '$9.99' },
     { id: 44, category: 'Beers & Cider on Tap', name: 'More Local Beers', description: 'Want more local beer options, worry not. We have A LOT of beers to choose from. Ask your server for details!', price: '' },
-    // Imports (bottles/cans)
-    { id: 45, category: 'Imports (Bottles/Cans)', name: 'Corona', description: '12 oz', price: '$8.49' },
-    { id: 46, category: 'Imports (Bottles/Cans)', name: 'Guinness', description: '16 oz', price: '$9' },
-    { id: 47, category: 'Imports (Bottles/Cans)', name: 'Heineken', description: '12 oz', price: '$8.49' },
-    { id: 48, category: 'Imports (Bottles/Cans)', name: 'Heineken Silver (4%)', description: '12 oz', price: '$7.25' },
-    { id: 49, category: 'Imports (Bottles/Cans)', name: 'Bira Moretti, bottles', description: '12 oz', price: '$8.50' },
-    // White Wine
-    { id: 50, category: 'White Wine', name: 'Santa Margarita (Italy) Pinot Grigio', description: '6 oz / 9 oz / Bottle', price: '$11 / $16 / $43' },
-    { id: 51, category: 'White Wine', name: 'Ruffino Pinot Grigio (Italy) Pinot Grigio', description: '6 oz / 9 oz / Bottle', price: '$10.50 / $15 / $40' },
-    { id: 52, category: 'White Wine', name: 'Sandhill (BC, Canada)', description: '6 oz / 9 oz / Bottle', price: '$12 / $18 / $50' },
-    { id: 53, category: 'White Wine', name: 'Fern Walk Rose (Okanagan BC) Rose', description: '6 oz / 9 oz', price: '$12 / $16' }, // Bottle price removed as per client data
-    { id: 54, category: 'White Wine', name: 'Jackson-Triggs (Okanagan BC) Sauvignon Blanc', description: '6 oz / 9 oz / Bottle', price: '$10 / $13 / $35' },
-    { id: 55, category: 'White Wine', name: 'Savian Bio (Italy) Pinot Grigio', description: 'Bottle', price: '$50' },
-    // Bubbles
-    { id: 56, category: 'Bubbles', name: 'Lamarca Prosecco (Italy)', description: 'Glass / Bottle', price: '$12 / $48' },
-    { id: 57, category: 'Bubbles', name: 'Cinzano Prosecco (Italy)', description: 'Glass / Bottle', price: '$10 / $40' },
-    { id: 58, category: 'Bubbles', name: 'Blanc De Blancs (Italy) Brut', description: 'Bottle', price: '$37' },
-    // Red Wine
-    { id: 59, category: 'Red Wine', name: 'THE JUDGE Hester Creek', description: 'Bottle', price: '$115' },
-    { id: 60, category: 'Red Wine', name: 'Valpolicella (Italy) Classico Bolla', description: '6 oz / 9 oz / Bottle', price: '$11.50 / $15.50 / $41' },
-    { id: 61, category: 'Red Wine', name: 'Deakin Estate (Australia) Shiraz Cabernet', description: '6 oz / 9 oz / Bottle', price: '$10 / $15 / $37' },
-    { id: 62, category: 'Red Wine', name: 'Cono Sur Organic (Chile) Cabernet Sauvignon', description: '6 oz / 9 oz / Bottle', price: '$11 / $16 / $43' },
-    { id: 63, category: 'Red Wine', name: 'Our Story (Okanagan Valley BC) Cabernet Merlot', description: '6 oz / 9 oz / Bottle', price: '$10 / $15 / $40' },
-    { id: 64, category: 'Red Wine', name: 'SEN (Chile) house', description: '6 oz / 9 oz / Bottle', price: '$8 / $11 / $28' },
-    { id: 65, category: 'Red Wine', name: 'Pindarie (Barossa Valley, Australia)', description: 'Bottle', price: '$65' },
+    { id: 75, category: 'Beers & Cider on Tap', name: 'Ask Your Server', description: 'Looking for something specific? Our beer selection rotates frequently with seasonal and limited releases. Ask your server about our current tap selection and special beer options!', price: '', isSpecial: true },
+    // White Wine, Red Wine, and Bubbles combined into Wine with subcategories
+    { id: 50, category: 'Wine', subcategory: 'White Wine', name: 'Santa Margarita (Italy) Pinot Grigio', description: '6 oz / 9 oz / Bottle', price: '$11 / $16 / $43' },
+    { id: 51, category: 'Wine', subcategory: 'White Wine', name: 'Ruffino Pinot Grigio (Italy) Pinot Grigio', description: '6 oz / 9 oz / Bottle', price: '$10.50 / $15 / $40' },
+    { id: 52, category: 'Wine', subcategory: 'White Wine', name: 'Sandhill (BC, Canada)', description: '6 oz / 9 oz / Bottle', price: '$12 / $18 / $50' },
+    { id: 53, category: 'Wine', subcategory: 'White Wine', name: 'Fern Walk Rose (Okanagan BC) Rose', description: '6 oz / 9 oz', price: '$12 / $16' }, // Bottle price removed as per client data
+    { id: 54, category: 'Wine', subcategory: 'White Wine', name: 'Jackson-Triggs (Okanagan BC) Sauvignon Blanc', description: '6 oz / 9 oz / Bottle', price: '$10 / $13 / $35' },
+    { id: 55, category: 'Wine', subcategory: 'White Wine', name: 'Savian Bio (Italy) Pinot Grigio', description: 'Bottle', price: '$50' },
+    { id: 56, category: 'Wine', subcategory: 'Bubbles', name: 'Lamarca Prosecco (Italy)', description: 'Glass / Bottle', price: '$12 / $48' },
+    { id: 57, category: 'Wine', subcategory: 'Bubbles', name: 'Cinzano Prosecco (Italy)', description: 'Glass / Bottle', price: '$10 / $40' },
+    { id: 58, category: 'Wine', subcategory: 'Bubbles', name: 'Blanc De Blancs (Italy) Brut', description: 'Bottle', price: '$37' },
+    { id: 59, category: 'Wine', subcategory: 'Red Wine', name: 'THE JUDGE Hester Creek', description: 'Bottle', price: '$115' },
+    { id: 60, category: 'Wine', subcategory: 'Red Wine', name: 'Valpolicella (Italy) Classico Bolla', description: '6 oz / 9 oz / Bottle', price: '$11.50 / $15.50 / $41' },
+    { id: 61, category: 'Wine', subcategory: 'Red Wine', name: 'Deakin Estate (Australia) Shiraz Cabernet', description: '6 oz / 9 oz / Bottle', price: '$10 / $15 / $37' },
+    { id: 62, category: 'Wine', subcategory: 'Red Wine', name: 'Cono Sur Organic (Chile) Cabernet Sauvignon', description: '6 oz / 9 oz / Bottle', price: '$11 / $16 / $43' },
+    { id: 63, category: 'Wine', subcategory: 'Red Wine', name: 'Our Story (Okanagan Valley BC) Cabernet Merlot', description: '6 oz / 9 oz / Bottle', price: '$10 / $15 / $40' },
+    { id: 64, category: 'Wine', subcategory: 'Red Wine', name: 'SEN (Chile) house', description: '6 oz / 9 oz / Bottle', price: '$8 / $11 / $28' },
+    { id: 65, category: 'Wine', subcategory: 'Red Wine', name: 'Pindarie (Barossa Valley, Australia)', description: 'Bottle', price: '$65' },
+    { id: 66, category: 'Wine', subcategory: 'Ask Your Server', name: 'Ask Your Server', description: 'Want to explore more wine options? Ask your server about our current wine rotation and seasonal selections.', price: '' },
     // Alcohol-free beverages
     { id: 66, category: 'Alcohol-Free Beverages', name: 'Corona Zero (355ml)', description: '', price: '$6.49' },
     { id: 67, category: 'Alcohol-Free Beverages', name: 'Boylan Soda', description: 'cane cola, orange, ginger ale, birch beer, root beer', price: '$4.49' },
@@ -84,54 +78,106 @@ const menuItems = [
     { id: 72, category: 'Alcohol-Free Beverages', name: 'Cabana Strawberry Lemonade', description: '', price: '$5.99' },
     { id: 73, category: 'Alcohol-Free Beverages', name: 'Cabana Lemonade', description: '', price: '$5.99' },
     { id: 74, category: 'Alcohol-Free Beverages', name: 'Organic Brew Dr. Kombucha', description: '', price: '$7.25' },
+    { id: 76, category: 'Alcohol-Free Beverages', name: 'Ask Your Server', description: 'Looking for other non-alcoholic options? We have additional mocktails, specialty drinks, and seasonal beverages available. Ask your server about our current alcohol-free selections!', price: '', isSpecial: true },
 ];
 
-// Define categories in the desired display order (Pasta removed)
-const categoriesInOrder = ['Pizzas', 'Appetizers', 'Signature Cocktails', 'Beers & Cider on Tap', 'Imports (Bottles/Cans)', 'White Wine', 'Bubbles', 'Red Wine', 'Alcohol-Free Beverages'];
-const filterCategories = ['All', ...categoriesInOrder]; // Update filter categories
+// Define categories in the desired display order
+const categoriesInOrder = ['Pizzas', 'Appetizers', 'Signature Cocktails', 'Beers & Cider on Tap', 'Wine', 'Alcohol-Free Beverages'];
+const filterCategories = categoriesInOrder; // Remove 'All' category
 
 function Menu() {
-    const [activeCategory, setActiveCategory] = useState('All');
+    const [activeCategory, setActiveCategory] = useState('Pizzas'); // Default to Pizzas
 
-    // Prepare items for display: grouped if 'All', flat array if filtered
+    // Prepare items for display: filter by selected category
     const displayData = useMemo(() => {
-        if (activeCategory === 'All') {
-            const grouped = {};
-            categoriesInOrder.forEach(cat => {
-                grouped[cat] = menuItems.filter(item => item.category === cat);
-            });
-            return grouped;
-        }
         return { [activeCategory]: menuItems.filter(item => item.category === activeCategory) };
     }, [activeCategory]);
 
     // Helper function to render a list of items for a category
-    const renderItemList = (items) => {
+    const renderItemList = (items, category) => {
+        // Special handling for Wine category with subcategories
+        if (category === 'Wine') {
+            const subcategories = ['White Wine', 'Red Wine', 'Bubbles', 'Ask Your Server'];
+
+            return subcategories.map(subcategory => {
+                const subcategoryItems = items.filter(item => item.subcategory === subcategory);
+                if (subcategoryItems.length === 0) return null;
+
+                return (
+                    <div key={subcategory} className="mb-8 break-inside-avoid">
+                        <h3 className="text-lg font-bold text-[#33312B] mb-4 uppercase tracking-wide border-b border-[#BC8F60] pb-2">
+                            {subcategory}
+                        </h3>
+                        <div className="ml-4">
+                            {subcategoryItems.map(item => (
+                                <div
+                                    key={item.id}
+                                    className="mb-4 p-2 rounded transition-colors duration-150 ease-in-out hover:bg-[#f7f1e4]"
+                                >
+                                    {subcategory === 'Ask Your Server' ? (
+                                        // Special styling for the Ask Your Server section
+                                        <div className="bg-amber-50 p-4 rounded-lg border border-[#BC8F60]">
+                                            <div className="text-center">
+                                                <h4 className="text-md font-bold text-[#33312B] uppercase tracking-wide mb-2">{item.name}</h4>
+                                                <p className="text-sm text-[#33312B] italic">{item.description}</p>
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <>
+                                            <div className="flex justify-between items-baseline mb-1">
+                                                <h4 className="text-md font-bold text-[#33312B] uppercase tracking-wide">{item.name}</h4>
+                                                <span className="flex-shrink-0 border-b border-dotted border-[#BC8F60] mx-2 flex-grow"></span>
+                                                <p className="text-md font-semibold text-[#33312B] flex-shrink-0">{item.price}</p>
+                                            </div>
+                                            <p className="text-sm text-[#33312B]">{item.description}</p>
+                                        </>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                );
+            }).filter(Boolean);
+        }
+
+        // Regular rendering for all other categories
         return items.map(item => (
             <div
                 key={item.id}
                 className="mb-4 break-inside-avoid p-2 rounded transition-colors duration-150 ease-in-out hover:bg-[#f7f1e4]" // Slightly darker hover
             >
-                <div className="flex justify-between items-baseline mb-1">
-                    <h3 className="text-md font-bold text-[#33312B] uppercase tracking-wide">{item.name}</h3>
-                    <span className="flex-shrink-0 border-b border-dotted border-[#BC8F60] mx-2 flex-grow"></span>
-                    <p className="text-md font-semibold text-[#33312B] flex-shrink-0">{item.price}</p>
-                </div>
-                <p className="text-sm text-[#33312B]">{item.description}</p>
+                {item.isSpecial ? (
+                    // Special styling for "Ask Your Server" sections
+                    <div className="bg-amber-50 p-4 rounded-lg border border-[#BC8F60]">
+                        <div className="text-center">
+                            <h3 className="text-md font-bold text-[#33312B] uppercase tracking-wide mb-2">{item.name}</h3>
+                            <p className="text-sm text-[#33312B] italic">{item.description}</p>
+                        </div>
+                    </div>
+                ) : (
+                    <>
+                        <div className="flex justify-between items-baseline mb-1">
+                            <h3 className="text-md font-bold text-[#33312B] uppercase tracking-wide">{item.name}</h3>
+                            <span className="flex-shrink-0 border-b border-dotted border-[#BC8F60] mx-2 flex-grow"></span>
+                            <p className="text-md font-semibold text-[#33312B] flex-shrink-0">{item.price}</p>
+                        </div>
+                        <p className="text-sm text-[#33312B]">{item.description}</p>
+                    </>
+                )}
             </div>
         ));
     };
 
     return (
         // Add horizontal padding back to the main container
-        <div className="w-full min-h-screen pt-24 pb-20 bg-[#FDF8ED] text-[#33312B] px-6 sm:px-12 md:px-20 lg:px-32">
+        <div className="w-full min-h-screen pt-24 pb-20 bg-[#FDF8ED] text-[#33312B] px-6 sm:px-12 tablet:px-16 md:px-20 lg:px-32">
             <h1 className="text-4xl sm:text-5xl font-black text-center mb-12 uppercase tracking-wider text-[#33312B]">
                 MENU
             </h1>
 
             {/* --- Banner Image --- */}
             {/* Increased height slightly, added negative margins to make it full-width */}
-            <div className="w-screen h-[40vh] md:h-[50vh] relative overflow-hidden mb-16 -mx-6 sm:-mx-12 md:-mx-20 lg:-mx-32">
+            <div className="w-screen h-[40vh] tablet:h-[45vh] md:h-[50vh] relative overflow-hidden mb-16 -mx-6 sm:-mx-12 tablet:-mx-16 md:-mx-20 lg:-mx-32">
                 <div
                     // Added parallax-bg class
                     className="absolute inset-0 w-full h-full parallax-bg bg-cover bg-center"
@@ -167,13 +213,13 @@ function Menu() {
                         // Removed React.Fragment as it's no longer needed without the conditional banner
                         <section key={category}>
                             <h2 className="text-2xl sm:text-3xl font-black text-[#33312B] mb-6 uppercase tracking-wide">{category}</h2>
-                            <div className="columns-1 md:columns-2 md:gap-12 lg:gap-16">
-                                {renderItemList(items)}
+                            <div className={category === 'Wine' ? "space-y-6" : "columns-1 tablet:columns-2 tablet-lg:columns-2 md:gap-12 lg:gap-16"}>
+                                {renderItemList(items, category)}
                             </div>
                         </section>
                     )
                 ))}
-                {Object.values(displayData).every(items => items.length === 0) && activeCategory !== 'All' && (
+                {Object.values(displayData).every(items => items.length === 0) && (
                     <p className="text-center text-[#33312B] mt-10">No items found for this category.</p>
                 )}
             </div>

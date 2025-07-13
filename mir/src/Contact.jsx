@@ -7,7 +7,7 @@ function Contact() {
 
             {/* --- Top Image Section (Centered) --- */}
             <div className="py-12 px-6 sm:px-12 md:px-20 lg:px-32"> {/* Wrapper with padding */}
-                <div className="max-w-4xl mx-auto h-[50vh] md:h-[60vh] relative overflow-hidden"> {/* Removed background color */}
+                <div className="max-w-4xl mx-auto h-[50vh] tablet:h-[55vh] md:h-[60vh] relative overflow-hidden"> {/* Removed background color */}
                     <div
                         className="absolute inset-0 w-full h-full bg-cover bg-center"
                         style={{ backgroundImage: 'url(/contactcover.jpg)' }}
@@ -58,7 +58,7 @@ function Contact() {
                     </div>
 
                     {/* Service Options */}
-                    <div>
+                    <div className="mb-10">
                         <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#33312B] mb-3 uppercase tracking-wide">
                             Service Options
                         </h2>
@@ -66,12 +66,22 @@ function Contact() {
                             Has outdoor seating <span className="mx-1">&bull;</span> Serves vegetarian dishes <span className="mx-1">&bull;</span> Has live music
                         </p>
                     </div>
+
+                    {/* Private Events */}
+                    <div>
+                        <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#33312B] mb-3 uppercase tracking-wide">
+                            Private Events
+                        </h2>
+                        <p className="font-body text-base md:text-lg text-[#33312B]">
+                            We are able to host events and gatherings. Contact us to discuss hosting your private event.
+                        </p>
+                    </div>
                 </div>
             </div>
 
             {/* --- Map Section (Centered, Matches Top Image Size) --- */}
             <div className="py-12 px-6 sm:px-12 md:px-20 lg:px-32"> {/* Wrapper with padding */}
-                <div className="max-w-4xl mx-auto h-[50vh] md:h-[60vh] relative overflow-hidden"> {/* Removed border */}
+                <div className="max-w-4xl mx-auto h-[50vh] tablet:h-[55vh] md:h-[60vh] relative overflow-hidden"> {/* Removed border */}
 
                     {/* Google Maps Embed - Placeholder, update with correct embed URL if address changed significantly */}
                     <iframe
@@ -95,12 +105,12 @@ function Contact() {
                         Hours
                     </h2>
                     <div className="space-y-2 text-base md:text-lg text-[#33312B]">
-                        <p className="font-body">Sunday: 12:00 PM - 9:00 PM</p>
-                        <p className="font-body">Monday: 11:00 AM - 9:00 PM</p>
-                        <p className="font-body">Tuesday: 11:00 AM - 9:00 PM</p>
-                        <p className="font-body">Wednesday: 11:00 AM - 9:00 PM</p>
+                        <p className="font-body">Sunday: 12:00 PM - 10:00 PM</p>
+                        <p className="font-body">Monday: 12:00 PM - 10:00 PM</p>
+                        <p className="font-body">Tuesday: 11:00 AM - 10:00 PM</p>
+                        <p className="font-body">Wednesday: 11:00 AM - 10:00 PM</p>
                         <p className="font-body">Thursday: 11:00 AM - 10:00 PM</p>
-                        <p className="font-body">Friday: 11:00 AM - 11:00 PM</p>
+                        <p className="font-body">Friday: 11:00 AM - 12:00 PM</p>
                         <p className="font-body">Saturday: 11:00 AM - 11:00 PM</p>
                     </div>
                 </div>
@@ -110,10 +120,10 @@ function Contact() {
             <div className="py-16 px-6 sm:px-12 md:px-20 lg:px-32">
                 <div className="max-w-4xl mx-auto">
                     {/* Flex container for images */}
-                    <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 lg:gap-16">
+                    <div className="flex flex-col tablet:flex-row justify-center items-center gap-8 tablet:gap-10 md:gap-12 lg:gap-16">
 
                         {/* Image 1 Container: Aspect ratio, constrained width */}
-                        <div className="w-full md:w-1/2 aspect-[4/3] relative overflow-hidden"> {/* Removed background color and border */}
+                        <div className="w-full tablet:w-1/2 aspect-[4/3] relative overflow-hidden"> {/* Removed background color and border */}
                             <div
                                 className="absolute inset-0 w-full h-full bg-cover bg-center"
                                 style={{ backgroundImage: 'url(/contactfooter1.jpg)' }}
@@ -122,10 +132,10 @@ function Contact() {
                         </div>
 
                         {/* Image 2 Container: Aspect ratio, constrained width */}
-                        <div className="w-full md:w-1/2 aspect-[4/3] relative overflow-hidden"> {/* Removed background color and border */}
+                        <div className="w-full tablet:w-1/2 aspect-[4/3] relative overflow-hidden"> {/* Removed background color and border */}
                             <div
                                 className="absolute inset-0 w-full h-full bg-cover bg-center"
-                                style={{ backgroundImage: 'url(/contactfooter2.jpg)' }}
+                                style={{ backgroundImage: 'url(/contactbottomright.jpg)' }}
                                 aria-label="Atmosphere shot 2"
                             ></div>
                         </div>

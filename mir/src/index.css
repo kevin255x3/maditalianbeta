@@ -30,6 +30,22 @@
   }
 }
 
+/* iPad specific optimizations */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* Improve touch targets for iPad */
+  button,
+  a {
+    min-height: 44px;
+    /* Apple's recommended minimum touch target size */
+  }
+
+  /* Optimize text sizing for iPad reading distance */
+  .section-heading {
+    font-size: 1.75rem;
+  }
+}
+
 /* Ensure html and body have height for scrolling */
 html,
 body {

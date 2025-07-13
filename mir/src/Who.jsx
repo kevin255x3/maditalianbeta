@@ -15,7 +15,7 @@ function Who() {
 
             {/* --- Main Content --- */}
             <div className="px-6 sm:px-12 md:px-20 lg:px-32">
-                <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+                <div className="max-w-6xl mx-auto grid grid-cols-1 tablet-lg:grid-cols-2 gap-16 tablet-lg:gap-20 items-center">
 
                     {/* Text Content */}
                     <div className="space-y-8">
@@ -62,10 +62,10 @@ function Who() {
                     </div>
 
                     {/* Image */}
-                    <div className="aspect-[4/5] lg:aspect-[3/4] relative overflow-hidden">
+                    <div className="aspect-[4/5] tablet-lg:aspect-[3/4] relative overflow-hidden">
                         <div
                             className="absolute inset-0 w-full h-full bg-cover bg-center"
-                            style={{ backgroundImage: 'url(/shoot2/fred.jpg)' }}
+                            style={{ backgroundImage: 'url(/whopagepic.jpg)' }}
                             aria-label="The Mad Italian atmosphere"
                         ></div>
                     </div>

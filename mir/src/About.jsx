@@ -5,7 +5,7 @@ function About() {
         <div className="w-full min-h-screen px-0 sm:px-0 md:px-0 lg:px-0 pb-0 bg-[#FDF8ED] text-[#33312B]">
 
             {/* --- Top Banner --- */}
-            <div className="w-screen h-[40vh] md:h-[50vh] relative overflow-hidden mb-16 flex items-center justify-center text-center">
+            <div className="w-screen h-[40vh] tablet:h-[45vh] md:h-[50vh] relative overflow-hidden mb-16 flex items-center justify-center text-center">
                 <div
                     className="absolute inset-0 w-full h-full parallax-bg bg-cover bg-center"
                     style={{ backgroundImage: 'url(/shot4.jpg)' }}
@@ -13,7 +13,7 @@ function About() {
                 ></div>
                 <div className="absolute inset-0 bg-black opacity-10"></div>
                 <div className="relative z-10 p-4">
-                    <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-wider mb-4">
+                    <h1 className="font-display text-4xl sm:text-5xl tablet:text-6xl md:text-7xl font-black text-white uppercase tracking-wider mb-4">
                         OUR STORY
                     </h1>
                 </div>
@@ -35,11 +35,11 @@ function About() {
             </div>
 
             {/* --- Specialties Section: Pizza --- */}
-            <div className="flex flex-col md:flex-row items-center bg-[#FDF8ED]">
-                <div className="w-full md:w-1/2 h-[50vh] md:h-[60vh] bg-cover bg-center"
+            <div className="flex flex-col tablet:flex-row items-center bg-[#FDF8ED]">
+                <div className="w-full tablet:w-1/2 h-[50vh] tablet:h-[55vh] md:h-[60vh] bg-cover bg-center"
                     style={{ backgroundImage: 'url(/shoot2/grid4.jpg)' }}>
                 </div>
-                <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 bg-[#FDF8ED]">
+                <div className="w-full tablet:w-1/2 p-8 tablet:p-10 md:p-12 lg:p-16 bg-[#FDF8ED]">
                     <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#33312B] mb-4 uppercase tracking-wide">
                         PERFECTING THE PIZZA
                     </h3>
@@ -50,11 +50,11 @@ function About() {
             </div>
 
             {/* --- Specialties Section: Drinks --- */}
-            <div className="flex flex-col md:flex-row-reverse items-center bg-[#FDF8ED]">
-                <div className="w-full md:w-1/2 h-[50vh] md:h-[60vh] bg-cover bg-center"
-                    style={{ backgroundImage: 'url(/shoot2/grid1.jpg)' }}>
+            <div className="flex flex-col tablet:flex-row-reverse items-center bg-[#FDF8ED]">
+                <div className="w-full tablet:w-1/2 h-[50vh] tablet:h-[55vh] md:h-[60vh] bg-cover bg-center"
+                    style={{ backgroundImage: 'url(/aboutpage22.jpg)' }}>
                 </div>
-                <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-16 bg-[#FDF8ED]">
+                <div className="w-full tablet:w-1/2 p-8 tablet:p-10 md:p-12 lg:p-16 bg-[#FDF8ED]">
                     <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#33312B] mb-4 uppercase tracking-wide">
                         CURATED PINTS & COCKTAILS
                     </h3>
@@ -92,7 +92,7 @@ function About() {
             </div>
 
             {/* --- Footer Banner --- */}
-            <div className="w-screen h-[40vh] md:h-[50vh] relative overflow-hidden flex items-center justify-center text-center">
+            <div className="w-screen h-[40vh] tablet:h-[45vh] md:h-[50vh] relative overflow-hidden flex items-center justify-center text-center">
                 <div
                     className="absolute inset-0 w-full h-full parallax-bg bg-cover bg-center"
                     style={{ backgroundImage: 'url(/visit1.jpg)' }}

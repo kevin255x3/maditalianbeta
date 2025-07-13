@@ -64,7 +64,7 @@ const Navbar = () => {
                     THE MAD ITALIAN
                 </Link>
 
-                <div className="hidden md:flex space-x-8">
+                <div className="hidden desktop:flex space-x-8">
                     <Link
                         to="/"
                         className={`font-display text-sm uppercase transition-colors ${activeLink === 'home' ? (useDarkAppearance ? scrolledTextColor + ' font-bold' : topActiveTextColor + ' font-bold') : (useDarkAppearance ? scrolledTextColor : topTextColor)} ${useDarkAppearance ? scrolledHoverTextColor : topHoverTextColor}`}
@@ -98,7 +98,7 @@ const Navbar = () => {
                 </div>
 
                 <button
-                    className="md:hidden"
+                    className="desktop:hidden"
                     onClick={toggleMenu}
                 >
                     <div className="flex flex-col items-end">
@@ -109,7 +109,7 @@ const Navbar = () => {
                 </button>
             </div>
 
-            <div className={`md:hidden bg-[#FDF8ED] transition-transform duration-300 ${isMenuOpen ? 'h-auto py-4 border-b border-[#33312B]/10' : 'h-0 overflow-hidden'}`}>
+            <div className={`desktop:hidden bg-[#FDF8ED] transition-transform duration-300 ${isMenuOpen ? 'h-auto py-4 border-b border-[#33312B]/10' : 'h-0 overflow-hidden'}`}>
                 <div className="flex flex-col space-y-4 px-8">
                     <Link
                         to="/"

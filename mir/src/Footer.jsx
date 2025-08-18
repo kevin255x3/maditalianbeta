@@ -34,7 +34,7 @@ const Footer = () => {
                     <div className="flex items-center space-x-3 mb-3 text-xs">
                         <a href="mailto:info@maditalian.com" className="font-display text-[#33312B] hover:text-[#333133] transition-colors">info@maditalian.com</a>
                         <span className="text-[#33312B]">|</span>
-                        <span className="font-body text-[#33312B]">20330 Fraser Hwy, Langley, BC</span>
+                        <span className="font-body text-[#33312B]">20728 Willoughby Town Centre Dr #100, Langley Twp, BC V2Y 0P3</span>
                     </div>
                     <div className="flex space-x-6 text-xs">
                         <a href="https://www.instagram.com/themaditalianpizza/?hl=en" className="font-display uppercase text-[#33312B] hover:text-[#333133] transition-colors">Instagram</a>
@@ -50,7 +50,7 @@ const Footer = () => {
                         </div>
                         <span className="text-[#33312B] mx-3">|</span>
                         <div className="flex-1 text-center">
-                            <span className="font-body text-[#33312B]">20330 Fraser Hwy, Langley, BC</span>
+                            <span className="font-body text-[#33312B]">20728 Willoughby Town Centre Dr #100, Langley Twp, BC V2Y 0P3</span>
                         </div>
                     </div>
                     <div className="flex items-center justify-center text-xs w-full">
@@ -68,7 +68,7 @@ const Footer = () => {
                     <div className="flex flex-row items-center space-x-6 text-xs">
                         <a href="mailto:info@maditalian.com" className="font-display text-[#33312B] hover:text-[#333133] transition-colors">info@maditalian.com</a>
                         <span className="text-[#33312B]">|</span>
-                        <span className="font-body text-[#33312B]">20330 Fraser Hwy, Langley, BC</span>
+                        <span className="font-body text-[#33312B]">20728 Willoughby Town Centre Dr #100, Langley Twp, BC V2Y 0P3</span>
                     </div>
                     <div className="flex items-center space-x-8 text-xs">
                         <a href="https://www.instagram.com/themaditalianpizza/?hl=en" className="font-display uppercase text-[#33312B] hover:text-[#333133] tracking-wide transition-colors">Instagram</a>

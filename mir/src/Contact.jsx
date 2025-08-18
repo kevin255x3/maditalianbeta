@@ -85,7 +85,7 @@ function Contact() {
 
                     {/* Google Maps Embed - Placeholder, update with correct embed URL if address changed significantly */}
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2609.908615389042!2d-122.65031502351903!3d49.14535947137251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5485d1921d50b4f7%3A0xa114619d66dfcfb3!2sThe%20Mad%20Italian%20Pizza%20%26%20Pints!5e0!3m2!1sen!2sca!4v1745819640279!5m2!1sen!2sca" // IMPORTANT: You might need to update this src for the new address
+                        src="https://www.google.com/maps?q=20728+Willoughby+Town+Centre+Dr+%23100+Langley+Twp+BC+V2Y+0P3&output=embed" // Updated to point to new address
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}

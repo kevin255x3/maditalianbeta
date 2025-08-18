@@ -3,25 +3,27 @@ import React, { useState, useMemo } from 'react';
 // Updated Menu Data
 const menuItems = [
     // Pizzas
-    { id: 1, category: 'Pizzas', name: 'Margharita', description: 'fior di latte mozzarella, fresh basil, extra virgin olive oil, salt, grana padano, San Marzano Tomato sauce.', price: '$18' },
-    { id: 2, category: 'Pizzas', name: 'Cheese', description: 'fior di latte mozzarella, white cheddar, grana padano, San Marzano tomato sauce.', price: '$18' },
-    { id: 3, category: 'Pizzas', name: 'Mediterranean', description: 'spinach, artichoke hearts, grape tomatoes, red onion, black olives, feta, balsamic reduction, San Marzano tomato sauce, grana padano.', price: '$20' },
+    { id: 1, category: 'Pizzas', name: 'Margherita', description: 'fior di latte mozzarella, fresh basil, extra virgin olive oil, salt, grana padano, San Marzano Tomato sauce.', price: '$19' },
+    { id: 2, category: 'Pizzas', name: 'Cheese', description: 'fior di latte mozzarella, white cheddar, grana padano, San Marzano tomato sauce.', price: '$19' },
+    { id: 3, category: 'Pizzas', name: 'Mediterranean', description: 'spinach, artichoke hearts, grape tomatoes, red onion, black olives, feta, balsamic reduction, San Marzano tomato sauce, grana padano.', price: '$21' },
     { id: 4, category: 'Pizzas', name: 'Vegetarian', description: 'red onion, green pepper, sauteed mushrooms, grape tomatoes, olives, fior di latte mozzarella, arugula, olive oil, grana Padano, San Marzano tomato sauce.', price: '$20' },
-    { id: 5, category: 'Pizzas', name: 'Jalapeno Sizzle', description: 'spinach, italian sausage, bacon, red onion, jalapeno, fior di latte mozzarella, hot drizzle, grana padano, alfredo sauce.', price: '$20' },
-    { id: 6, category: 'Pizzas', name: 'Pepperoni', description: 'Pepperoni, white cheddar, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$19.50' },
-    { id: 7, category: 'Pizzas', name: 'Hawaiian', description: 'ham, pineapple, bacon, white cheddar, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$20' },
-    { id: 8, category: 'Pizzas', name: 'Italian Sausage', description: 'pepperoni, Italian sausage, sauteed mushrooms, green pepper, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$21' },
-    { id: 9, category: 'Pizzas', name: 'Meat Lovers', description: 'pepperoni, ham, Italian sausage, bacon, white cheddar, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$21' },
-    { id: 10, category: 'Pizzas', name: 'BBQ Chicken', description: 'chicken, caramelized onions, white cheddar, fior de latte mozzarella, BBQ drizzle, arugula, extra virgin olive oil, grana padano, alfredo sauce.', price: '$21' },
+    { id: 5, category: 'Pizzas', name: 'Jalapeno Sizzle', description: 'spinach, italian sausage, bacon, red onion, jalapeno, fior di latte mozzarella, hot drizzle, grana padano, alfredo sauce.', price: '$21' },
+    { id: 6, category: 'Pizzas', name: 'Pepperoni', description: 'Pepperoni, white cheddar, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$21' },
+    { id: 7, category: 'Pizzas', name: 'Hawaiian', description: 'ham, pineapple, bacon, white cheddar, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$21' },
+    { id: 8, category: 'Pizzas', name: 'Italian Sausage', description: 'pepperoni, Italian sausage, sauteed mushrooms, green pepper, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$22' },
+    { id: 9, category: 'Pizzas', name: 'Meat Lovers', description: 'pepperoni, ham, Italian sausage, bacon, white cheddar, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$22.50' },
+    { id: 10, category: 'Pizzas', name: 'BBQ Chicken', description: 'chicken, caramelized onions, white cheddar, fior de latte mozzarella, BBQ drizzle, arugula, extra virgin olive oil, grana padano, alfredo sauce.', price: '$22' },
     { id: 11, category: 'Pizzas', name: 'Chicken Alfredo', description: 'chicken, caramelized onions, grape tomatoes, fior di latte mozzarella, arugula, extra virgin olive oil, grana padano, alfredo sauce.', price: '$21' },
-    { id: 12, category: 'Pizzas', name: 'Buffalo Chicken', description: 'Buffalo style chicken, fior de latte mozzarella, house drizzle, green onion, grana padano, alfredo sauce.', price: '$21' },
-    { id: 13, category: 'Pizzas', name: 'Cheesesteak', description: 'steak, onion, sauteed mushrooms, green pepper, provolone, grana padano, alfredo sauce.', price: '$21' },
-    { id: 14, category: 'Pizzas', name: 'Nutty Honey', description: 'spicy capicola, fior de latte, ground pistachio, chili flakes, pesto, honey, grana padano, alfredo sauce.', price: '$21' },
+    { id: 12, category: 'Pizzas', name: 'Buffalo Chicken', description: 'Buffalo style chicken, fior de latte mozzarella, house drizzle, green onion, grana padano, alfredo sauce.', price: '$22' },
+    { id: 13, category: 'Pizzas', name: 'Cheesesteak', description: 'steak, onion, sauteed mushrooms, green pepper, provolone, grana padano, alfredo sauce.', price: '$22' },
+    { id: 14, category: 'Pizzas', name: 'Nutty Honey', description: 'spicy capicola, fior de latte, ground pistachio, chili flakes, pesto, honey, grana padano, alfredo sauce.', price: '$22.50' },
     // Appetizers
-    { id: 15, category: 'Appetizers', name: 'Mad Rolls', description: 'Chicken, salt & pepper, white cheddar.', price: '$16' },
-    { id: 16, category: 'Appetizers', name: 'Chicken Wings', description: 'house marinated, southeast rub.', price: '$18' },
-    { id: 17, category: 'Appetizers', name: 'Garlic Cheese Bread', description: 'Garlic, provolone cheese, grana padano.', price: '$12' },
-    { id: 18, category: 'Appetizers', name: 'Fries', description: '', price: '$8' },
+    { id: 15, category: 'Appetizers', name: 'Mad Rolls', description: 'Shredded chicken, white cheddar, chili flakes, salt & pepper. Served with marinara, garlic or chipotle sauce.', price: '$16.50' },
+    { id: 16, category: 'Appetizers', name: 'Wings', description: 'Smokey Southwest. Served with garlic or chipotle sauce.', price: '$19' },
+    { id: 17, category: 'Appetizers', name: 'Garlic Cheese Bomb', description: 'Garlic oil base, provolone & cheddar. Add drizzle honey & chili flakes +$1.50', price: '$14' },
+    // Salads
+    { id: 18, category: 'Salads', name: 'Ceaser salad', description: 'Romaine lettuce, red onion, grape tomatoes, croutons, grana padano. Add chicken +$4 Add bacon +$3', price: '$15' },
+    { id: 19, category: 'Salads', name: 'Burrata', description: 'Baby arugula, grape tomatoes, house pesto, EV olive oil, balsamic reduction, burrata cheese. Pairs well with the GCB', price: '$19' },
     // Mad Italian Signature Cocktails
     { id: 20, category: 'Signature Cocktails', name: 'Mad Margarita', description: 'Hornotis Tequila, triple sec, fresh lime juice, simple syrup, hot jalapeno, basil.', price: '$14' },
     { id: 21, category: 'Signature Cocktails', name: 'Lime Margarita', description: 'Hornitos Tequila, triple sec, fresh lime juice, simple syrup, lime.', price: '$14' },
@@ -51,23 +53,21 @@ const menuItems = [
     { id: 44, category: 'Beers & Cider on Tap', name: 'More Local Beers', description: 'Want more local beer options, worry not. We have A LOT of beers to choose from. Ask your server for details!', price: '' },
     { id: 75, category: 'Beers & Cider on Tap', name: 'Ask Your Server', description: 'Looking for something specific? Our beer selection rotates frequently with seasonal and limited releases. Ask your server about our current tap selection and special beer options!', price: '', isSpecial: true },
     // White Wine, Red Wine, and Bubbles combined into Wine with subcategories
-    { id: 50, category: 'Wine', subcategory: 'White Wine', name: 'Santa Margarita (Italy) Pinot Grigio', description: '6 oz / 9 oz / Bottle', price: '$11 / $16 / $43' },
-    { id: 51, category: 'Wine', subcategory: 'White Wine', name: 'Ruffino Pinot Grigio (Italy) Pinot Grigio', description: '6 oz / 9 oz / Bottle', price: '$10.50 / $15 / $40' },
-    { id: 52, category: 'Wine', subcategory: 'White Wine', name: 'Sandhill (BC, Canada)', description: '6 oz / 9 oz / Bottle', price: '$12 / $18 / $50' },
-    { id: 53, category: 'Wine', subcategory: 'White Wine', name: 'Fern Walk Rose (Okanagan BC) Rose', description: '6 oz / 9 oz', price: '$12 / $16' }, // Bottle price removed as per client data
-    { id: 54, category: 'Wine', subcategory: 'White Wine', name: 'Jackson-Triggs (Okanagan BC) Sauvignon Blanc', description: '6 oz / 9 oz / Bottle', price: '$10 / $13 / $35' },
-    { id: 55, category: 'Wine', subcategory: 'White Wine', name: 'Savian Bio (Italy) Pinot Grigio', description: 'Bottle', price: '$50' },
-    { id: 56, category: 'Wine', subcategory: 'Bubbles', name: 'Lamarca Prosecco (Italy)', description: 'Glass / Bottle', price: '$12 / $48' },
-    { id: 57, category: 'Wine', subcategory: 'Bubbles', name: 'Cinzano Prosecco (Italy)', description: 'Glass / Bottle', price: '$10 / $40' },
-    { id: 58, category: 'Wine', subcategory: 'Bubbles', name: 'Blanc De Blancs (Italy) Brut', description: 'Bottle', price: '$37' },
-    { id: 59, category: 'Wine', subcategory: 'Red Wine', name: 'THE JUDGE Hester Creek', description: 'Bottle', price: '$115' },
-    { id: 60, category: 'Wine', subcategory: 'Red Wine', name: 'Valpolicella (Italy) Classico Bolla', description: '6 oz / 9 oz / Bottle', price: '$11.50 / $15.50 / $41' },
-    { id: 61, category: 'Wine', subcategory: 'Red Wine', name: 'Deakin Estate (Australia) Shiraz Cabernet', description: '6 oz / 9 oz / Bottle', price: '$10 / $15 / $37' },
-    { id: 62, category: 'Wine', subcategory: 'Red Wine', name: 'Cono Sur Organic (Chile) Cabernet Sauvignon', description: '6 oz / 9 oz / Bottle', price: '$11 / $16 / $43' },
-    { id: 63, category: 'Wine', subcategory: 'Red Wine', name: 'Our Story (Okanagan Valley BC) Cabernet Merlot', description: '6 oz / 9 oz / Bottle', price: '$10 / $15 / $40' },
-    { id: 64, category: 'Wine', subcategory: 'Red Wine', name: 'SEN (Chile) house', description: '6 oz / 9 oz / Bottle', price: '$8 / $11 / $28' },
-    { id: 65, category: 'Wine', subcategory: 'Red Wine', name: 'Pindarie (Barossa Valley, Australia)', description: 'Bottle', price: '$65' },
-    { id: 66, category: 'Wine', subcategory: 'Ask Your Server', name: 'Ask Your Server', description: 'Want to explore more wine options? Ask your server about our current wine rotation and seasonal selections.', price: '' },
+    { id: 50, category: 'Wine', subcategory: 'White Wine', name: 'Pinot Grigio - Santa Margherita (Italy)', description: '6oz / 9oz', price: '$11 / $17' },
+    { id: 51, category: 'Wine', subcategory: 'White Wine', name: 'Pinot Grigio - Ruffino Lumina (Italy)', description: '6oz / 9oz', price: '$10 / $15' },
+    { id: 52, category: 'Wine', subcategory: 'White Wine', name: 'The Good Sauvignon Blanc (Okanagan)', description: '6oz / 9oz', price: '$12 / $18' },
+    { id: 53, category: 'Wine', subcategory: 'White Wine', name: 'The Good Rose (Okanagan)', description: '6oz / 9oz', price: '$12 / $18' },
+    { id: 54, category: 'Wine', subcategory: 'White Wine', name: 'Sauvignon Blanc - Jackson-Triggs (Okanagan)', description: '6oz / 9oz', price: '$9 / $14' },
+    { id: 55, category: 'Wine', subcategory: 'White Wine', name: 'Fern-Walk Rose (Okanagan)', description: '6oz / 9oz', price: '$11 / $17' },
+    { id: 56, category: 'Wine', subcategory: 'White Wine', name: 'Chardonnay (New Zealand)', description: '6oz / 9oz', price: '$13 / $20' },
+    { id: 57, category: 'Wine', subcategory: 'Bubbles', name: 'Ruffino Prosecco', description: '5oz', price: '$12' },
+    { id: 58, category: 'Wine', subcategory: 'Red Wine', name: 'Cabernet Merlot - Our Story (Okanagan)', description: '6oz / 9oz', price: '$12 / $18' },
+    { id: 59, category: 'Wine', subcategory: 'Red Wine', name: 'Merlot - Sumac Ridge (Okanagan)', description: '6oz / 9oz', price: '$10 / $15' },
+    { id: 60, category: 'Wine', subcategory: 'Red Wine', name: 'Sen (Chile) house red', description: '6oz / 9oz', price: '$7 / $11' },
+    { id: 61, category: 'Wine', subcategory: 'Red Wine', name: 'Shiraz Cabernet - Deakin Estate (Australia)', description: '6oz / 9oz', price: '$10 / $15' },
+    { id: 62, category: 'Wine', subcategory: 'Red Wine', name: 'Bolla Classico (Valpolicella)', description: '6oz / 9oz', price: '$11 / $16' },
+    { id: 63, category: 'Wine', subcategory: 'Red Wine', name: 'Organic Cabernet Sauvignon - Cono Sur (Chile)', description: '6oz / 9oz', price: '$11 / $16' },
+    { id: 64, category: 'Wine', subcategory: 'Ask Your Server', name: 'Ask Your Server', description: 'Want to explore more wine options? Ask your server about our current wine rotation and seasonal selections.', price: '' },
     // Alcohol-free beverages
     { id: 66, category: 'Alcohol-Free Beverages', name: 'Corona Zero (355ml)', description: '', price: '$6.49' },
     { id: 67, category: 'Alcohol-Free Beverages', name: 'Boylan Soda', description: 'cane cola, orange, ginger ale, birch beer, root beer', price: '$4.49' },
@@ -79,10 +79,23 @@ const menuItems = [
     { id: 73, category: 'Alcohol-Free Beverages', name: 'Cabana Lemonade', description: '', price: '$5.99' },
     { id: 74, category: 'Alcohol-Free Beverages', name: 'Organic Brew Dr. Kombucha', description: '', price: '$7.25' },
     { id: 76, category: 'Alcohol-Free Beverages', name: 'Ask Your Server', description: 'Looking for other non-alcoholic options? We have additional mocktails, specialty drinks, and seasonal beverages available. Ask your server about our current alcohol-free selections!', price: '', isSpecial: true },
+
+    // Desserts
+    { id: 77, category: 'Dessert', name: 'Bananutella', description: 'Extra virgin olive oil, Nutella, fresh banana, coconut flake. + add fresh strawberries +$2 add coconut whipped cream +$1', price: '$18' },
+    { id: 78, category: 'Dessert', name: 'New York Cheesecake', description: 'Cracker crust, blueberry compote, coconut whipped cream', price: '$12' },
+
+    // House Made Sauces
+    { id: 79, category: 'House Made Sauces', name: 'Dill Ranch', description: '', price: '$1.50' },
+    { id: 80, category: 'House Made Sauces', name: 'Garlic Sauce', description: '', price: '$1.50' },
+    { id: 81, category: 'House Made Sauces', name: 'Chipotle Sauce', description: '', price: '$1.50' },
+    { id: 82, category: 'House Made Sauces', name: 'Chili Oil', description: '', price: '$1.50' },
+    { id: 83, category: 'House Made Sauces', name: 'Ceaser Salad Dressing', description: '', price: '$2.50' },
+    { id: 84, category: 'House Made Sauces', name: 'Marinara', description: '', price: '$1.50' },
+    { id: 85, category: 'House Made Sauces', name: 'Hot Drizzle', description: '', price: '$1.50' },
 ];
 
 // Define categories in the desired display order
-const categoriesInOrder = ['Pizzas', 'Appetizers', 'Signature Cocktails', 'Beers & Cider on Tap', 'Wine', 'Alcohol-Free Beverages'];
+const categoriesInOrder = ['Pizzas', 'Appetizers', 'Salads', 'Signature Cocktails', 'Beers & Cider on Tap', 'Wine', 'Alcohol-Free Beverages', 'Dessert', 'House Made Sauces'];
 const filterCategories = categoriesInOrder; // Remove 'All' category
 
 function Menu() {

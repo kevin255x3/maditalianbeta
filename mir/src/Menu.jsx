@@ -1,102 +1,114 @@
 import React, { useState, useMemo } from 'react';
 
-// Updated Menu Data
+// Updated Menu Data - Based on Client's Finalized PDFs
 const menuItems = [
     // Pizzas
-    { id: 1, category: 'Pizzas', name: 'Margherita', description: 'fior di latte mozzarella, fresh basil, extra virgin olive oil, salt, grana padano, San Marzano Tomato sauce.', price: '$19' },
-    { id: 2, category: 'Pizzas', name: 'Cheese', description: 'fior di latte mozzarella, white cheddar, grana padano, San Marzano tomato sauce.', price: '$19' },
-    { id: 3, category: 'Pizzas', name: 'Mediterranean', description: 'spinach, artichoke hearts, grape tomatoes, red onion, black olives, feta, balsamic reduction, San Marzano tomato sauce, grana padano.', price: '$21' },
-    { id: 4, category: 'Pizzas', name: 'Vegetarian', description: 'red onion, green pepper, sauteed mushrooms, grape tomatoes, olives, fior di latte mozzarella, arugula, olive oil, grana Padano, San Marzano tomato sauce.', price: '$20' },
-    { id: 5, category: 'Pizzas', name: 'Jalapeno Sizzle', description: 'spinach, italian sausage, bacon, red onion, jalapeno, fior di latte mozzarella, hot drizzle, grana padano, alfredo sauce.', price: '$21' },
-    { id: 6, category: 'Pizzas', name: 'Pepperoni', description: 'Pepperoni, white cheddar, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$21' },
-    { id: 7, category: 'Pizzas', name: 'Hawaiian', description: 'ham, pineapple, bacon, white cheddar, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$21' },
-    { id: 8, category: 'Pizzas', name: 'Italian Sausage', description: 'pepperoni, Italian sausage, sauteed mushrooms, green pepper, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$22' },
-    { id: 9, category: 'Pizzas', name: 'Meat Lovers', description: 'pepperoni, ham, Italian sausage, bacon, white cheddar, fior di latte mozzarella, grana padano, San Marzano tomato sauce.', price: '$22.50' },
-    { id: 10, category: 'Pizzas', name: 'BBQ Chicken', description: 'chicken, caramelized onions, white cheddar, fior de latte mozzarella, BBQ drizzle, arugula, extra virgin olive oil, grana padano, alfredo sauce.', price: '$22' },
-    { id: 11, category: 'Pizzas', name: 'Chicken Alfredo', description: 'chicken, caramelized onions, grape tomatoes, fior di latte mozzarella, arugula, extra virgin olive oil, grana padano, alfredo sauce.', price: '$21' },
-    { id: 12, category: 'Pizzas', name: 'Buffalo Chicken', description: 'Buffalo style chicken, fior de latte mozzarella, house drizzle, green onion, grana padano, alfredo sauce.', price: '$22' },
-    { id: 13, category: 'Pizzas', name: 'Cheesesteak', description: 'steak, onion, sauteed mushrooms, green pepper, provolone, grana padano, alfredo sauce.', price: '$22' },
-    { id: 14, category: 'Pizzas', name: 'Nutty Honey', description: 'spicy capicola, fior de latte, ground pistachio, chili flakes, pesto, honey, grana padano, alfredo sauce.', price: '$22.50' },
+    { id: 1, category: 'Pizzas', name: 'Margherita', description: 'Tomato sauce, fior di latte mozzarella, sea salt, fresh basil, grana padano, extra virgin olive oil', price: '$19' },
+    { id: 2, category: 'Pizzas', name: 'Cheese', description: 'Tomato sauce, fior di latte mozzarella, white cheddar, grana padano', price: '$19' },
+    { id: 3, category: 'Pizzas', name: 'Mediterranean', description: 'Tomato sauce, spinach, artichoke hearts, grape tomatoes, red onion, black olives, feta, balsamic reduction, grana padano', price: '$21' },
+    { id: 4, category: 'Pizzas', name: 'Vegetarian', description: 'Tomato sauce, sautéed mushroom, black olives, red onion, grape tomatoes, green pepper, arugula, fior di latte mozzarella, olive oil, grana padano', price: '$20' },
+    { id: 5, category: 'Pizzas', name: 'Jalapeno Sizzle', description: 'Alfredo sauce, Italian sausage, bacon, red onion, spinach, fior di latte mozzarella, hot drizzle, grana padano', price: '$21' },
+    { id: 6, category: 'Pizzas', name: 'Pepperoni', description: 'Tomato sauce, pepperoni, fior di latte mozzarella, grana padano', price: '$21' },
+    { id: 7, category: 'Pizzas', name: 'Hawaiian', description: 'Tomato sauce, ham, pineapple, bacon, fior di latte mozzarella, grana padano', price: '$21' },
+    { id: 8, category: 'Pizzas', name: 'Italian Sausage', description: 'Tomato sauce, pepperoni, Italian sausage, sautéed mushroom, green pepper, fior di latte mozzarella, grana padano', price: '$22' },
+    { id: 9, category: 'Pizzas', name: 'Meat Lovers', description: 'Tomato sauce, pepperoni, ham, Italian sausage, bacon, fior di latte mozzarella, grana padano', price: '$22.50' },
+    { id: 10, category: 'Pizzas', name: 'BBQ Chicken', description: 'Alfredo sauce, chicken, caramelized onion, fior di latte mozzarella, BBQ drizzle, arugula, EV olive oil, grana padano', price: '$22' },
+    { id: 11, category: 'Pizzas', name: 'Chicken Alfredo', description: 'Alfredo sauce, chicken, caramelized onions, grape tomatoes, fior di latte mozzarella, arugula, extra virgin olive oil, grana padano', price: '$21' },
+    { id: 12, category: 'Pizzas', name: 'Buffalo Chicken', description: 'Alfredo sauce, buffalo style chicken, fior di latte mozzarella, green onion, house drizzle, grana padano', price: '$22' },
+    { id: 13, category: 'Pizzas', name: 'Cheesesteak', description: 'Alfredo sauce, steak, onion, sautéed mushroom, green pepper, provolone, grana padano', price: '$22' },
+    { id: 14, category: 'Pizzas', name: 'Nutty Honey', description: 'Alfredo sauce, spicy capicollo, chili flakes, ground pistachio, fior di latte mozzarella, house pesto, honey, grana padano', price: '$22.50' },
+
     // Appetizers
     { id: 15, category: 'Appetizers', name: 'Mad Rolls', description: 'Shredded chicken, white cheddar, chili flakes, salt & pepper. Served with marinara, garlic or chipotle sauce.', price: '$16.50' },
     { id: 16, category: 'Appetizers', name: 'Wings', description: 'Smokey Southwest. Served with garlic or chipotle sauce.', price: '$19' },
-    { id: 17, category: 'Appetizers', name: 'Garlic Cheese Bomb', description: 'Garlic oil base, provolone & cheddar. Add drizzle honey & chili flakes +$1.50', price: '$14' },
+    { id: 17, category: 'Appetizers', name: 'Garlic Cheese Bomb', description: 'Garlic oil base, provolone & cheddar. <em>Add drizzle honey & chili flakes +$1.50</em>', price: '$14' },
+
     // Salads
-    { id: 18, category: 'Salads', name: 'Ceaser salad', description: 'Romaine lettuce, red onion, grape tomatoes, croutons, grana padano. Add chicken +$4 Add bacon +$3', price: '$15' },
+    { id: 18, category: 'Salads', name: 'Caesar Salad', description: 'Romaine lettuce, red onion, grape tomatoes, croutons, grana padano. <em>Add chicken +$4 Add bacon +$3</em>', price: '$15' },
     { id: 19, category: 'Salads', name: 'Burrata', description: 'Baby arugula, grape tomatoes, house pesto, EV olive oil, balsamic reduction, burrata cheese. Pairs well with the GCB', price: '$19' },
+
     // Mad Italian Signature Cocktails
-    { id: 20, category: 'Signature Cocktails', name: 'Mad Margarita', description: 'Hornotis Tequila, triple sec, fresh lime juice, simple syrup, hot jalapeno, basil.', price: '$14' },
-    { id: 21, category: 'Signature Cocktails', name: 'Lime Margarita', description: 'Hornitos Tequila, triple sec, fresh lime juice, simple syrup, lime.', price: '$14' },
-    { id: 22, category: 'Signature Cocktails', name: 'Lover’s Margarita', description: '1800 Tequila, triple sec, fresh lime juice, simple syrup, strawberries.', price: '$15' },
-    { id: 23, category: 'Signature Cocktails', name: 'Cucumber Margarita', description: '1800 Tequila, triple sec, fresh lime juice, fresh cucumber juice, simple syrup', price: '$15' },
-    { id: 24, category: 'Signature Cocktails', name: 'The Grand Margarita', description: 'Espolon reposado Tequila, fresh lime juice, simple syrup, Grand Marnier', price: '$18' },
-    { id: 25, category: 'Signature Cocktails', name: 'Enzoni', description: 'Campari, Beefeater gin, fresh lemon juice, simple syrup, grapes', price: '$15' },
-    { id: 26, category: 'Signature Cocktails', name: 'La Nuit', description: 'Goslings dark rum, Grand Marnier, Cassis', price: '$18' },
-    { id: 27, category: 'Signature Cocktails', name: 'Espresso Martini', description: 'Vanilla vodka, kahlua, fresh espresso (add 0.5 oz of baileys)', price: '$14' },
-    { id: 28, category: 'Signature Cocktails', name: 'Moscow Mule', description: 'Vodka, limoncello, fresh lime juice, ginger beer, basil', price: '$14' },
-    { id: 29, category: 'Signature Cocktails', name: 'Aperol Spritz', description: 'Cinzano prosecco, Aperol, soda, orange', price: '$13' },
-    { id: 30, category: 'Signature Cocktails', name: 'The St-Germain Spritz', description: 'Cinzano prosecco, St-Germain, soda water, lemon', price: '$13' },
-    { id: 31, category: 'Signature Cocktails', name: 'Long Island Iced Tea', description: 'vodka, gin, tequila, bacardi, peach snapps, fresh lime juice, zero sugar iced tea, lemon', price: '$15' },
-    { id: 32, category: 'Signature Cocktails', name: 'Old Fashioned', description: 'Bourbon, simple syrup, angustora bitters, orange peel', price: '$15' },
-    { id: 33, category: 'Signature Cocktails', name: 'Negroni', description: 'Martini vermouth, compari, bombay gin, orange peel', price: '$15' },
-    { id: 34, category: 'Signature Cocktails', name: 'Mojito', description: 'Bacardi, fresh lime juice, simple syrup, mint, lemon', price: '$14' },
-    { id: 35, category: 'Signature Cocktails', name: 'Caesar', description: '', price: '$10' },
+    { id: 20, category: 'Signature Cocktails', name: 'Lime Margarita', description: 'Hornitos Tequila, triple sec, fresh lime juice, simple syrup, lime <em>+ salt rim</em>', price: '$13' },
+    { id: 21, category: 'Signature Cocktails', name: 'Mad Margarita', description: 'Hornitos Tequila, triple sec, fresh lime juice, simple syrup, hot jalapeno, basil <em>+ tajin rim</em>', price: '$14' },
+    { id: 22, category: 'Signature Cocktails', name: 'Lover\'s Margarita', description: '1800 Tequila, triple sec, fresh lime juice, simple syrup, fresh strawberries <em>+ tajin rim</em>', price: '$16.75' },
+    { id: 23, category: 'Signature Cocktails', name: 'Raspberry Basil Margarita', description: '1800 Tequila, triple sec, fresh lime, simple syrup, fresh raspberries, basil <em>+ sugar rim</em>', price: '$16.75' },
+    { id: 24, category: 'Signature Cocktails', name: 'Spicy Cucumber Margarita', description: '1800 Tequila, triple sec, fresh lime juice, simple syrup, cucumber <em>+ tajin rim</em>', price: '$16.75' },
+    { id: 25, category: 'Signature Cocktails', name: 'The Gin Basil Smash', description: 'Gin, fresh lemon juice, cucumber, basil, soda', price: '$15' },
+    { id: 26, category: 'Signature Cocktails', name: 'Enzoni', description: 'Gin, Aperol, fresh lemon juice, simple syrup, grapes', price: '$16' },
+    { id: 27, category: 'Signature Cocktails', name: 'La Notte', description: 'Dark Rum, Grand Marnier, Cassis', price: '$16' },
+    { id: 28, category: 'Signature Cocktails', name: 'Espresso Martini', description: 'Absolute Vodka, Kahlua, fresh espresso, coffee beans', price: '$15' },
+    { id: 29, category: 'Signature Cocktails', name: 'Flower Drop', description: 'Grey Goose Vodka, Elderflower, fresh lemon juice, simple syrup', price: '$21' },
+    { id: 30, category: 'Signature Cocktails', name: 'Moscow Mule', description: 'Vodka, limoncello, fresh lime juice, ginger beer, basil', price: '$13' },
+    { id: 31, category: 'Signature Cocktails', name: 'Paper Plane', description: 'Bourbon, Aperol, Amaro, fresh lemon juice', price: '$18' },
+    { id: 32, category: 'Signature Cocktails', name: 'Steam Donkey', description: 'Vodka, limoncello, fresh lime juice, ginger beer, fresh strawberries', price: '$15' },
+    { id: 33, category: 'Signature Cocktails', name: 'Long Island Iced Tea', description: 'Vodka, Gin, Tequila, Bacardi, peach schnapps, fresh lime juice, zero sugar iced tea, lemon', price: '$15.50' },
+    { id: 34, category: 'Signature Cocktails', name: 'Old Fashioned', description: 'Bourbon, bitters, orange', price: '$15' },
+    { id: 35, category: 'Signature Cocktails', name: 'Negroni', description: 'Vermouth, Campari, Gin, orange', price: '$16' },
+    { id: 36, category: 'Signature Cocktails', name: 'Mojito', description: 'Bacardi, fresh lime juice, simple syrup, soda water, fresh mint', price: '$14' },
+    { id: 37, category: 'Signature Cocktails', name: 'Aperol Spritz', description: 'Prosecco, Aperol, soda water, orange', price: '$13' },
+    { id: 38, category: 'Signature Cocktails', name: 'Caesar', description: 'Vodka, tobasco, worcestershire, fresh lime juice, clamato, pickled bean <em>+ celery salt rim</em>', price: '$10' },
+    { id: 39, category: 'Signature Cocktails', name: 'Dirty Martini', description: 'Vodka, vermouth, olive juice, jalapeno juice, lemon', price: '$17' },
+
     // Beers & Cider on Tap
-    { id: 36, category: 'Beers & Cider on Tap', name: 'Trading Post Hell’s Lager', description: '16 oz', price: '$7.99' },
-    { id: 37, category: 'Beers & Cider on Tap', name: 'Dead Frog Pepper Lime Lager', description: '16oz', price: '$7.99' },
-    { id: 38, category: 'Beers & Cider on Tap', name: '5 Roads Permanent IPA', description: '16 oz', price: '$7.99' },
-    { id: 39, category: 'Beers & Cider on Tap', name: 'Fuggles Salted Caramel Ale', description: '16 oz', price: '$8.99' },
-    { id: 40, category: 'Beers & Cider on Tap', name: 'Sour (rotating)', description: '16 oz', price: '$7.99' },
-    { id: 41, category: 'Beers & Cider on Tap', name: 'House Lager', description: '16 oz', price: '$7.99' },
-    { id: 42, category: 'Beers & Cider on Tap', name: 'Fraser Valley Cider', description: '12 oz', price: '$9.99' },
-    { id: 43, category: 'Beers & Cider on Tap', name: 'Bira Moretti, Italian lager', description: '14 oz', price: '$9.99' },
-    { id: 44, category: 'Beers & Cider on Tap', name: 'More Local Beers', description: 'Want more local beer options, worry not. We have A LOT of beers to choose from. Ask your server for details!', price: '' },
-    { id: 75, category: 'Beers & Cider on Tap', name: 'Ask Your Server', description: 'Looking for something specific? Our beer selection rotates frequently with seasonal and limited releases. Ask your server about our current tap selection and special beer options!', price: '', isSpecial: true },
-    // White Wine, Red Wine, and Bubbles combined into Wine with subcategories
-    { id: 50, category: 'Wine', subcategory: 'White Wine', name: 'Pinot Grigio - Santa Margherita (Italy)', description: '6oz / 9oz', price: '$11 / $17' },
-    { id: 51, category: 'Wine', subcategory: 'White Wine', name: 'Pinot Grigio - Ruffino Lumina (Italy)', description: '6oz / 9oz', price: '$10 / $15' },
-    { id: 52, category: 'Wine', subcategory: 'White Wine', name: 'The Good Sauvignon Blanc (Okanagan)', description: '6oz / 9oz', price: '$12 / $18' },
-    { id: 53, category: 'Wine', subcategory: 'White Wine', name: 'The Good Rose (Okanagan)', description: '6oz / 9oz', price: '$12 / $18' },
-    { id: 54, category: 'Wine', subcategory: 'White Wine', name: 'Sauvignon Blanc - Jackson-Triggs (Okanagan)', description: '6oz / 9oz', price: '$9 / $14' },
-    { id: 55, category: 'Wine', subcategory: 'White Wine', name: 'Fern-Walk Rose (Okanagan)', description: '6oz / 9oz', price: '$11 / $17' },
-    { id: 56, category: 'Wine', subcategory: 'White Wine', name: 'Chardonnay (New Zealand)', description: '6oz / 9oz', price: '$13 / $20' },
-    { id: 57, category: 'Wine', subcategory: 'Bubbles', name: 'Ruffino Prosecco', description: '5oz', price: '$12' },
-    { id: 58, category: 'Wine', subcategory: 'Red Wine', name: 'Cabernet Merlot - Our Story (Okanagan)', description: '6oz / 9oz', price: '$12 / $18' },
-    { id: 59, category: 'Wine', subcategory: 'Red Wine', name: 'Merlot - Sumac Ridge (Okanagan)', description: '6oz / 9oz', price: '$10 / $15' },
-    { id: 60, category: 'Wine', subcategory: 'Red Wine', name: 'Sen (Chile) house red', description: '6oz / 9oz', price: '$7 / $11' },
-    { id: 61, category: 'Wine', subcategory: 'Red Wine', name: 'Shiraz Cabernet - Deakin Estate (Australia)', description: '6oz / 9oz', price: '$10 / $15' },
-    { id: 62, category: 'Wine', subcategory: 'Red Wine', name: 'Bolla Classico (Valpolicella)', description: '6oz / 9oz', price: '$11 / $16' },
-    { id: 63, category: 'Wine', subcategory: 'Red Wine', name: 'Organic Cabernet Sauvignon - Cono Sur (Chile)', description: '6oz / 9oz', price: '$11 / $16' },
+    { id: 40, category: 'Beers & Cider on Tap', name: 'Pepper Lime Lager', description: 'By Dead Frog brewing, Langley, BC | 5% ABV | 16oz', price: '$8' },
+    { id: 41, category: 'Beers & Cider on Tap', name: 'Italian Lager (Birra Moretti)', description: 'By Birra Moretti, Italy | 4.6% ABV | 14oz', price: '$10' },
+    { id: 42, category: 'Beers & Cider on Tap', name: 'Hell\'s Lager', description: 'By Trading Post brewing, Langley, BC | 5% ABV | 16oz', price: '$8' },
+    { id: 43, category: 'Beers & Cider on Tap', name: 'Blueberry Peach Scrumpers Sour', description: 'By Smugglers Trail brewing, Langley, BC | 4.5% ABV (seasonal) | 16oz', price: '$8' },
+    { id: 44, category: 'Beers & Cider on Tap', name: 'The Mad Lager', description: '5% ABV | 16oz', price: '$6' },
+    { id: 45, category: 'Beers & Cider on Tap', name: 'Rosy Cider', description: 'By Fraser Valley Cider, Langley, BC | 7.2% ABV (rotating) | 10oz', price: '$10' },
+    { id: 46, category: 'Beers & Cider on Tap', name: 'Permanent Resident IPA', description: 'By Five Roads brewing, Langley, BC | 6.2% ABV | 16oz', price: '$8' },
+    { id: 47, category: 'Beers & Cider on Tap', name: 'Pineapple Express Radler', description: 'Farm Country brewing, Langley, BC | 4.2% ABV (seasonal) | 16oz', price: '$8' },
+    { id: 48, category: 'Beers & Cider on Tap', name: 'Ask Your Server', description: 'Looking for something specific? Our beer selection rotates frequently with seasonal and limited releases. Ask your server about our current tap selection and special beer options!', price: '', isSpecial: true },
+
+    // Wine - By the Glass Only (Bottle section removed as requested)
+    { id: 50, category: 'Wine', subcategory: 'White Wine', name: 'Pinot Grigio - Santa Margherita', description: 'Italy | dry | 6oz / 9oz', price: '$11 / $17' },
+    { id: 51, category: 'Wine', subcategory: 'White Wine', name: 'Pinot Grigio - Ruffino Lumina', description: 'Italy | balanced with notes of pears and citrus fruit | 6oz / 9oz', price: '$10 / $15' },
+    { id: 52, category: 'Wine', subcategory: 'White Wine', name: 'The Good Sauvignon Blanc', description: 'Saintly, Okanagan Valley, BC | fresh & fruity | 6oz / 9oz', price: '$12 / $18' },
+    { id: 53, category: 'Wine', subcategory: 'White Wine', name: 'The Good Rosé', description: 'Saintly, Okanagan Valley, BC | dry, fresh & fruity | 6oz / 9oz', price: '$12 / $18' },
+    { id: 54, category: 'Wine', subcategory: 'White Wine', name: 'Sauvignon Blanc (House White)', description: 'Jackson-Triggs, Okanagan Valley, BC | vibrant & fruity | 6oz / 9oz', price: '$9 / $14' },
+    { id: 55, category: 'Wine', subcategory: 'White Wine', name: 'Fern-Walk Rosé', description: 'Fern-Walk, Okanagan Valley, BC | Light and juicy | 6oz / 9oz', price: '$11 / $17' },
+    { id: 56, category: 'Wine', subcategory: 'White Wine', name: 'Chardonnay', description: 'Oyster Bay Marlborough, New Zealand | Subtly oaky, fruity character | 6oz / 9oz', price: '$13 / $20' },
+    { id: 57, category: 'Wine', subcategory: 'Bubbles', name: 'Ruffino Prosecco', description: 'Italy | Extra dry | 5oz', price: '$12' },
+    { id: 58, category: 'Wine', subcategory: 'Red Wine', name: 'Cabernet Merlot', description: 'Our Story, Okanagan Valley, BC | Medium bodied with silky tannins | 6oz / 9oz', price: '$12 / $18' },
+    { id: 59, category: 'Wine', subcategory: 'Red Wine', name: 'Merlot', description: 'Sumac Ridge private reserve, Okanagan Valley, BC | Medium body | 6oz / 9oz', price: '$10 / $15' },
+    { id: 60, category: 'Wine', subcategory: 'Red Wine', name: 'Sen (House Red)', description: 'Chile | Medium body with ripe tannins | 6oz / 9oz', price: '$7 / $11' },
+    { id: 61, category: 'Wine', subcategory: 'Red Wine', name: 'Shiraz Cabernet', description: 'Deaken Estate, Australia | rich & juicy | 6oz / 9oz', price: '$10 / $15' },
+    { id: 62, category: 'Wine', subcategory: 'Red Wine', name: 'Bolla Classico', description: 'Valpolicella, Italy | well defined finish with hints of cherry & spicy cherry | 6oz / 9oz', price: '$11 / $16' },
+    { id: 63, category: 'Wine', subcategory: 'Red Wine', name: 'Organic Cabernet Sauvignon', description: 'Cono Sur, Chile | full body | 6oz / 9oz', price: '$11 / $16' },
     { id: 64, category: 'Wine', subcategory: 'Ask Your Server', name: 'Ask Your Server', description: 'Want to explore more wine options? Ask your server about our current wine rotation and seasonal selections.', price: '' },
-    // Alcohol-free beverages
-    { id: 66, category: 'Alcohol-Free Beverages', name: 'Corona Zero (355ml)', description: '', price: '$6.49' },
-    { id: 67, category: 'Alcohol-Free Beverages', name: 'Boylan Soda', description: 'cane cola, orange, ginger ale, birch beer, root beer', price: '$4.49' },
-    { id: 68, category: 'Alcohol-Free Beverages', name: 'Organic Sparkling Strawberry Soda', description: '', price: '$4.49' },
-    { id: 69, category: 'Alcohol-Free Beverages', name: 'Organic Sparkling Blueberry Soda', description: '', price: '$4.49' },
-    { id: 70, category: 'Alcohol-Free Beverages', name: 'Organic Sparkling Blackberry Soda', description: '', price: '$4.49' },
-    { id: 71, category: 'Alcohol-Free Beverages', name: 'Good Drink Iced Tea', description: 'Lemonade, Green tea, Strawberry', price: '$4.99' },
-    { id: 72, category: 'Alcohol-Free Beverages', name: 'Cabana Strawberry Lemonade', description: '', price: '$5.99' },
-    { id: 73, category: 'Alcohol-Free Beverages', name: 'Cabana Lemonade', description: '', price: '$5.99' },
-    { id: 74, category: 'Alcohol-Free Beverages', name: 'Organic Brew Dr. Kombucha', description: '', price: '$7.25' },
-    { id: 76, category: 'Alcohol-Free Beverages', name: 'Ask Your Server', description: 'Looking for other non-alcoholic options? We have additional mocktails, specialty drinks, and seasonal beverages available. Ask your server about our current alcohol-free selections!', price: '', isSpecial: true },
+
+    // Alcohol-free beverages (Expanded with mocktails as per PDF)
+    { id: 66, category: 'Alcohol-Free Beverages', name: 'Chateau Light Sparkling Water', description: '355ml', price: '$3.50' },
+    { id: 67, category: 'Alcohol-Free Beverages', name: 'Boylan Soda', description: 'Birch Beer, Orange, Cane Cola, Ginger Ale, Black Cherry | 355ml', price: '$4.50' },
+    { id: 68, category: 'Alcohol-Free Beverages', name: 'Organic Sparkling Soda', description: 'Strawberry, Blueberry, Blackberry | 355ml', price: '$4.50' },
+    { id: 69, category: 'Alcohol-Free Beverages', name: 'Cabana Lemonade', description: 'Strawberry, Lemon, Blue Raspberry | 591ml', price: '$6.50' },
+    { id: 70, category: 'Alcohol-Free Beverages', name: 'Regular Soda', description: 'Coke, Diet Coke, Ginger Ale, Coke Zero, Sprite, Tonic Water | 330ml', price: '$3' },
+    { id: 71, category: 'Alcohol-Free Beverages', name: 'Good Drink Iced Tea', description: 'Mango, Lemon, Green Tea | 473ml', price: '$5' },
+    { id: 72, category: 'Alcohol-Free Beverages', name: 'Orange/Apple Juice', description: '300ml', price: '$3' },
+    { id: 73, category: 'Alcohol-Free Beverages', name: 'Shirley Temple', description: 'Orange juice, ginger ale, grenadine', price: '$7' },
+    { id: 74, category: 'Alcohol-Free Beverages', name: 'Virgin Mojito', description: 'Fresh lime juice, simple syrup, mint, soda', price: '$8' },
+    { id: 75, category: 'Alcohol-Free Beverages', name: 'Virgin Caesar', description: 'Clamato, fresh lime juice, tabasco, worcestershire, pickled bean <em>+ celery salt rim</em>', price: '$8' },
+    { id: 76, category: 'Alcohol-Free Beverages', name: 'Virgin Moscow Mule', description: 'Fresh lime juice, basil, ginger beer', price: '$8' },
+    { id: 77, category: 'Alcohol-Free Beverages', name: 'Virgin Margarita', description: 'Fresh lime juice, simple syrup, basil, soda water <em>+ salt rim</em>', price: '$8' },
+    { id: 78, category: 'Alcohol-Free Beverages', name: 'Ask Your Server', description: 'Looking for other non-alcoholic options? We have additional mocktails, specialty drinks, and seasonal beverages available. Ask your server about our current alcohol-free selections!', price: '', isSpecial: true },
 
     // Desserts
-    { id: 77, category: 'Dessert', name: 'Bananutella', description: 'Extra virgin olive oil, Nutella, fresh banana, coconut flake. + add fresh strawberries +$2 add coconut whipped cream +$1', price: '$18' },
-    { id: 78, category: 'Dessert', name: 'New York Cheesecake', description: 'Cracker crust, blueberry compote, coconut whipped cream', price: '$12' },
+    { id: 79, category: 'Dessert', name: 'Bananutella', description: 'Extra virgin olive oil, nutella, fresh banana, coconut flake. <em>+ add fresh strawberries +$2 add coconut whipped cream +$1</em>', price: '$18' },
+    { id: 80, category: 'Dessert', name: 'New York Cheesecake', description: 'Cracker crust, blueberry compote, coconut whipped cream', price: '$12' },
 
     // House Made Sauces
-    { id: 79, category: 'House Made Sauces', name: 'Dill Ranch', description: '', price: '$1.50' },
-    { id: 80, category: 'House Made Sauces', name: 'Garlic Sauce', description: '', price: '$1.50' },
-    { id: 81, category: 'House Made Sauces', name: 'Chipotle Sauce', description: '', price: '$1.50' },
-    { id: 82, category: 'House Made Sauces', name: 'Chili Oil', description: '', price: '$1.50' },
-    { id: 83, category: 'House Made Sauces', name: 'Ceaser Salad Dressing', description: '', price: '$2.50' },
-    { id: 84, category: 'House Made Sauces', name: 'Marinara', description: '', price: '$1.50' },
-    { id: 85, category: 'House Made Sauces', name: 'Hot Drizzle', description: '', price: '$1.50' },
+    { id: 81, category: 'House Made Sauces', name: 'Dill Ranch', description: '', price: '$1.50' },
+    { id: 82, category: 'House Made Sauces', name: 'Garlic Sauce', description: '', price: '$1.50' },
+    { id: 83, category: 'House Made Sauces', name: 'Chipotle Sauce', description: '', price: '$1.50' },
+    { id: 84, category: 'House Made Sauces', name: 'Chili Oil', description: '', price: '$1.50' },
+    { id: 85, category: 'House Made Sauces', name: 'Caesar Salad Dressing', description: '', price: '$2.50' },
+    { id: 86, category: 'House Made Sauces', name: 'Marinara', description: '', price: '$1.50' },
+    { id: 87, category: 'House Made Sauces', name: 'Hot Drizzle', description: '', price: '$1.50' },
 ];
 
 // Define categories in the desired display order
 const categoriesInOrder = ['Pizzas', 'Appetizers', 'Salads', 'Signature Cocktails', 'Beers & Cider on Tap', 'Wine', 'Alcohol-Free Beverages', 'Dessert', 'House Made Sauces'];
-const filterCategories = categoriesInOrder; // Remove 'All' category
+const filterCategories = categoriesInOrder;
 
 function Menu() {
     const [activeCategory, setActiveCategory] = useState('Pizzas'); // Default to Pizzas
@@ -142,7 +154,7 @@ function Menu() {
                                                 <span className="flex-shrink-0 border-b border-dotted border-[#BC8F60] mx-2 flex-grow"></span>
                                                 <p className="text-md font-semibold text-[#33312B] flex-shrink-0">{item.price}</p>
                                             </div>
-                                            <p className="text-sm text-[#33312B]">{item.description}</p>
+                                            <p className="text-sm text-[#33312B]" dangerouslySetInnerHTML={{ __html: item.description }}></p>
                                         </>
                                     )}
                                 </div>
@@ -174,7 +186,7 @@ function Menu() {
                             <span className="flex-shrink-0 border-b border-dotted border-[#BC8F60] mx-2 flex-grow"></span>
                             <p className="text-md font-semibold text-[#33312B] flex-shrink-0">{item.price}</p>
                         </div>
-                        <p className="text-sm text-[#33312B]">{item.description}</p>
+                        <p className="text-sm text-[#33312B]" dangerouslySetInnerHTML={{ __html: item.description }}></p>
                     </>
                 )}
             </div>

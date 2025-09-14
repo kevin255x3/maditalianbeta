@@ -83,7 +83,7 @@ function About() {
                         JOIN THE FAMILY
                     </h2>
                     <p className="font-body text-base md:text-lg leading-relaxed text-[#33312B] mb-4">
-                        We invite you to become part of The Mad Italian story. Whether you're stopping by for a quick slice or settling in for the evening, our door is always open.
+                       We invite you to become part of The Mad Italian story. Whether you're joining us for lunch with colleagues or settling in for the evening with family and friends, our door is always open.
                     </p>
                     <p className="font-body text-base md:text-lg leading-relaxed text-[#33312B] mb-6">
                         We look forward to serving you!

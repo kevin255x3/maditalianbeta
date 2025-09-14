@@ -105,13 +105,13 @@ function Contact() {
                         Hours
                     </h2>
                     <div className="space-y-2 text-base md:text-lg text-[#33312B]">
-                        <p className="font-body">Sunday: 12:00 PM - 10:00 PM</p>
-                        <p className="font-body">Monday: 12:00 PM - 10:00 PM</p>
-                        <p className="font-body">Tuesday: 11:00 AM - 10:00 PM</p>
-                        <p className="font-body">Wednesday: 11:00 AM - 10:00 PM</p>
-                        <p className="font-body">Thursday: 11:00 AM - 10:00 PM</p>
-                        <p className="font-body">Friday: 11:00 AM - 12:00 PM</p>
-                        <p className="font-body">Saturday: 11:00 AM - 11:00 PM</p>
+                     <p className="font-body">Sunday: 12PM to 9PM</p>
+                        <p className="font-body">Monday: 12PM to 9PM</p>
+                        <p className="font-body">Tuesday: 11AM to 9PM</p>
+                        <p className="font-body">Wednesday: 11AM to 9PM</p>
+                        <p className="font-body">Thursday: 11AM to 10PM</p>
+                        <p className="font-body">Friday: 11AM to 11PM</p>
+                        <p className="font-body">Saturday: 11AM to 11PM</p>
                     </div>
                 </div>
             </div>

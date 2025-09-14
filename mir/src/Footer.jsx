@@ -71,7 +71,7 @@ const Footer = () => {
                 /* Desktop version (original side-by-side layout) */
                 <div className="flex flex-row justify-between items-center h-12 px-8">
                     <div className="flex flex-row items-center space-x-6 text-xs">
-                        <a href="mailto:info@maditalian.com" className="font-display text-[#33312B] hover:text-[#333133] transition-colors">info@maditalian.com</a>
+                        <a href="mailto:info@maditalianpizza.ca" className="font-display text-[#33312B] hover:text-[#333133] transition-colors">info@maditalianpizza.com</a>
                         <span className="text-[#33312B]">|</span>
                         <span className="font-body text-[#33312B]">20728 Willoughby Town Centre Dr #100, Langley Twp, BC V2Y 0P3</span>
                     </div>

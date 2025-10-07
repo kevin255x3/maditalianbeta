@@ -39,8 +39,8 @@ function Contact() {
                         <p className="font-body text-base md:text-lg text-[#33312B] mb-3">
                             We value your feedback and are grateful for your support. Please don't hesitate to reach out.
                         </p>
-                        <a href="mailto:hello@maditalianpizza.ca" className="font-body text-lg md:text-xl text-[#33312B] hover:text-[#B51A00] transition-colors">
-                            hello@maditalianpizza.ca
+                        <a href="mailto:info@maditalianpizza.ca" className="font-body text-lg md:text-xl text-[#33312B] hover:text-[#B51A00] transition-colors">
+                            info@maditalianpizza.ca
                         </a>
                     </div>
 

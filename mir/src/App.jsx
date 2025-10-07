@@ -6,7 +6,6 @@ import Home from './Home';
 import Menu from './Menu';
 import About from './About';
 import Contact from './Contact';
-import Who from './Who'; // Import the Who component
 import ScrollToTop from './ScrollToTop';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/who" element={<Who />} /> {/* Added Who route */}
         </Routes>
         <Footer />
       </div>

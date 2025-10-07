@@ -89,12 +89,6 @@ const Navbar = () => {
                     >
                         Contact
                     </Link>
-                    <Link
-                        to="/who"
-                        className={`font-display text-sm uppercase transition-colors ${activeLink === 'who' ? (useDarkAppearance ? scrolledTextColor + ' font-bold' : topActiveTextColor + ' font-bold') : (useDarkAppearance ? scrolledTextColor : topTextColor)} ${useDarkAppearance ? scrolledHoverTextColor : topHoverTextColor}`}
-                    >
-                        Who
-                    </Link>
                 </div>
 
                 <button
@@ -138,13 +132,6 @@ const Navbar = () => {
                         onClick={() => setIsMenuOpen(false)}
                     >
                         Contact
-                    </Link>
-                    <Link
-                        to="/who"
-                        className={`mobile-menu-item font-display text-sm uppercase ${activeLink === 'who' ? mobileDropdownActiveTextColor + ' font-bold' : mobileDropdownTextColor}`}
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        Who
                     </Link>
                 </div>
             </div>
